@@ -63,29 +63,4 @@ public class UserService {
             return user.getId();
         }
     }
-
-    public Integer userAge(Long id){
-        UserEntity user = userRepository.findById(id).orElse(null);
-        if(user == null){
-            return 0;
-        }
-        Date birthdate = user.getBirthdate();
-        LocalDate birthLocalDate = birthdate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate currentLocalDate = LocalDate.now();
-
-        Integer age = currentLocalDate.getYear() - birthLocalDate.getYear();
-        if (currentLocalDate.getDayOfYear() < birthLocalDate.getDayOfYear()) {
-            age--;
-        }
-
-        return age;
-    }
-
-    public Boolean ageLimit(Integer age){
-        if(age == null) return false;
-        if(age >= 70 || age < 18){
-            return false;
-        }
-        return true;
-    }
 }

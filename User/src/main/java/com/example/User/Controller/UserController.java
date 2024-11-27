@@ -67,11 +67,4 @@ public class UserController {
         Long log =  userService.login(user.getEmail(), user.getPassword());
         return ResponseEntity.ok(log);
     }
-
-    @GetMapping("/ageLimit/{userId}")
-    public ResponseEntity<Boolean> ageLimit(@PathVariable Long userId){
-        Integer age = userService.userAge(userId);
-        Boolean limit = userService.ageLimit(age);
-        return ResponseEntity.ok(limit);
-    }
 }
