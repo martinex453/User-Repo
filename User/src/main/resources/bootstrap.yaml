@@ -4,7 +4,7 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://${DB_HOST}:8091
+      uri: http://localhost:8081
   datasource:
     url: jdbc:mysql://${DB_HOST}:3306/microBD
     username: martinTingeso
@@ -14,4 +14,4 @@ spring:
       ddl-auto: update
 
 server:
-  port: 0
+  port: 8091
